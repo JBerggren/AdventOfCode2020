@@ -1,7 +1,7 @@
-function dayX(resultElement) {
+function day5(resultElement) {
 
     function findSolution1(list) {
-    
+        return 0;
     }
 
     function findSolution2(list) {
