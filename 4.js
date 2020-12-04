@@ -7,9 +7,15 @@ function day4(resultElement) {
             'hgt',
             'hcl',
             'ecl',
-            'pid',//'cid'
+            'pid',
+            //'cid'
         ];
         return list.filter(x => verifyPassport(x, credentials)).length;
+    }
+
+    function verifyPassport(passport, mandatoryFields) {
+        var fields = passport.split(" ").map(x => { return x.split(":")[0] });
+        return mandatoryFields.filter(field => fields.indexOf(field) != -1).length == mandatoryFields.length;
     }
 
     function findSolution2(list) {
@@ -39,11 +45,6 @@ function day4(resultElement) {
         return list.filter(x => verifyPassport2(x, validators)).length;
     }
 
-    function verifyPassport(passport, mandatoryFields) {
-        var fields = passport.split(" ").map(x => { return x.split(":")[0] });
-        return mandatoryFields.filter(field => fields.indexOf(field) != -1).length == mandatoryFields.length;
-    }
-
     function verifyPassport2(data, validators) {
         var passport = {};
         data.split(" ").forEach(field => {
@@ -61,7 +62,6 @@ function day4(resultElement) {
         }
         return true;
     }
-
 
 
     var testAnswer = findSolution1(getTestList());
