@@ -1,28 +1,39 @@
-function dayX(resultElement) {
-
-    function findSolution1(list) {
+function day7 (resultElement) {
+    function findSolution1 (list) {
+      
+    }
+  
+    
+    function findSolution2 (list) {
     
     }
-
-    function findSolution2(list) {
-        
-    }
-
+  
     
-
-    var testAnswer = findSolution1(getTestList());
-    var answer = findSolution1(getList());
-    resultElement.innerHTML = `Answer test: ${testAnswer}<br>Answer real: ${answer}<br>`;
-
-    var testAnswer = findSolution2(getTestList());
-    var answer = findSolution2(getList());
-    resultElement.innerHTML += `Answer test: ${testAnswer}<br>Answer real: ${answer}<br>`;
-
-    function getTestList() {
-        return [];
+    getTestList().then(list => {
+      answer = findSolution1(list)
+      resultElement.innerHTML += `Answer part 1: ${answer}<br>`
+    });
+  
+    // getTestList().then(list => {
+    //   answer = findSolution2(list)
+    //   resultElement.innerHTML += `Answer part 2: ${answer}<br>`
+    // });
+  
+  
+    function getTestList () {
+      return fetch('7-test.txt')
+        .then(response => response.text())
+        .then(input => {
+          return input;
+        })
     }
-
-    function getList(){
-        return [];
+  
+    function getList () {
+      return fetch('7-data.txt')
+        .then(response => response.text())
+        .then(input => {
+          return input;
+        })
     }
-}
+  }
+  
